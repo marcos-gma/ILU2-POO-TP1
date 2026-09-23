@@ -61,9 +61,9 @@ public class Village {
 		private Etal[] etals;
 		private int nbEtals;
 		
-		public Marche(int NombreEtals) {
-			this.nbEtals = NombreEtals;
-			for(int i=0; i < NombreEtals; i++) {
+		public Marche(int nombreEtals) {
+			this.nbEtals = nombreEtals;
+			for(int i=0; i < nombreEtals; i++) {
 				this.etals[i] = new Etal();
 			}
 		}
@@ -81,5 +81,47 @@ public class Village {
 			return -1;
 		}
 		
+		public Etal[] trouverEtals(String produit) {
+			int nbEtalsVend = 0;
+			for(int i=0; i < this.nbEtals; i++) {
+				if (this.etals[i].contientProduit(produit) == true) {
+					nbEtalsVend++;
+				}
+			}
+			
+			Etal[] etalsVend = new Etal[nbEtalsVend];
+			
+			int j = 0;
+			
+			for(int i=0; i < this.nbEtals; i++) {
+				if (this.etals[i].contientProduit(produit) == true) {
+					etalsVend[j] = this.etals[i];
+					j++;
+				}
+			}
+			
+			return etalsVend;
+
+		}
+		
+		public Etal trouverVendeur(Gaulois gaulois) {
+			
+			for(int i=0; i < this.nbEtals; i++) {
+				if (this.etals[i].getVendeur() == gaulois) {
+					return this.etals[i];
+				}
+			}
+
+			return null;
+		}
+		
+		public String afficherMarche() {
+			
+			String etat;
+			int nbLibre = 0;
+			for(int i=0; i < this.nbEtals; i++) {
+				
+			}
+		}
 	}
 }
