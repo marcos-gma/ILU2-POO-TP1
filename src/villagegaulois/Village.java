@@ -116,7 +116,7 @@ public class Village {
 		return chaine.toString();
 	}
 	
-	public class Marche {
+	private static class Marche {
 		private Etal[] etals;
 		private int nbEtals;
 		
@@ -167,7 +167,7 @@ public class Village {
 		public Etal trouverVendeur(Gaulois gaulois) {
 			
 			for(int i=0; i < this.nbEtals; i++) {
-				if (this.etals[i].getVendeur() == gaulois) {
+				if (this.etals[i].isEtalOccupe() && this.etals[i].getVendeur() == gaulois) {
 					return this.etals[i];
 				}
 			}
